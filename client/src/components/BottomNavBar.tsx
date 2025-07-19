@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Home as HomeIcon,
-  MessageCircle,
+  Video,
   User,
   Users,
   Bot,
@@ -21,9 +21,9 @@ export default function BottomNavBar() {
   const navItems = [
     { label: t("nav.home"), icon: HomeIcon, path: "/" },
     {
-      label: t("nav.chat"),
-      icon: MessageCircle,
-      path: "/chat",
+      label: "Match",
+      icon: Video,
+      path: "/video-chat",
     },
     { label: "AI Chat", icon: Bot, path: "/ai-chatbot" },
     {
@@ -54,29 +54,31 @@ export default function BottomNavBar() {
         return (
           <button
             key={item.label}
-            className={`relative flex flex-col items-center justify-center flex-1 py-2 sm:py-3 px-2 focus:outline-none transition-all duration-300 transform ${
+            className={`relative flex flex-col items-center justify-center flex-1 py-2 sm:py-3 px-2 focus:outline-none transition-all duration-300 transform active:scale-95 ${
               isActive ? "scale-110 sm:scale-115" : "hover:scale-105"
             }`}
             onClick={() => navigate(item.path)}
           >
             {/* Active background glow */}
             {isActive && (
-              <div className="absolute inset-0 bg-gradient-to-br from-peach-300/30 via-coral-200/20 to-blush-300/30 rounded-2xl blur-sm" />
+              <div className="absolute inset-0 bg-gradient-to-br from-peach-300/40 via-coral-200/30 to-blush-300/40 rounded-2xl blur-sm shadow-lg" />
             )}
 
             {/* Icon container with beautiful styling */}
             <div
               className={`relative p-2 sm:p-2.5 rounded-xl transition-all duration-300 ${
                 isActive
-                  ? "bg-gradient-to-br from-peach-400 via-coral-300 to-blush-400 shadow-lg shadow-peach-300/50"
-                  : "bg-gradient-to-br from-cream-100/80 to-peach-100/60 hover:from-peach-200/80 hover:to-coral-200/60"
+                  ? "bg-gradient-to-br from-peach-400 via-coral-300 to-blush-400 shadow-lg shadow-peach-300/60"
+                  : "bg-gradient-to-br from-gray-100/80 to-gray-200/60 hover:from-peach-200/80 hover:to-coral-200/60"
               }`}
             >
               <IconComponent
                 size={18}
                 style={{
-                  color: isActive ? "#fffcf0" : "#ff7a2b",
-                  filter: "drop-shadow(0 1px 2px rgba(255, 122, 43, 0.3))",
+                  color: isActive ? "#fffcf0" : "#C4C4C4",
+                  filter: isActive 
+                    ? "drop-shadow(0 1px 2px rgba(255, 122, 43, 0.3))" 
+                    : "drop-shadow(0 1px 1px rgba(196, 196, 196, 0.2))",
                 }}
                 className="sm:w-5 sm:h-5 lg:w-6 lg:h-6 transition-colors duration-300"
               />
@@ -85,17 +87,21 @@ export default function BottomNavBar() {
             {/* Label with beautiful styling */}
             <span
               style={{
-                color: isActive ? "#e55a1b" : "#ff9a56",
-                textShadow: "0 1px 2px rgba(255, 154, 86, 0.3)",
+                color: isActive ? "#e55a1b" : "#C4C4C4",
+                textShadow: isActive 
+                  ? "0 1px 2px rgba(255, 154, 86, 0.3)" 
+                  : "0 1px 1px rgba(196, 196, 196, 0.2)",
               }}
-              className="text-[10px] sm:text-xs lg:text-sm font-semibold leading-none mt-1 transition-colors duration-300"
+              className={`text-[10px] sm:text-xs lg:text-sm leading-none mt-1 transition-colors duration-300 ${
+                isActive ? "font-extrabold" : "font-medium"
+              }`}
             >
               {item.label}
             </span>
 
             {/* Active indicator dot */}
             {isActive && (
-              <div className="absolute -top-1 right-1/2 transform translate-x-1/2 w-2 h-2 bg-gradient-to-r from-coral-400 to-blush-400 rounded-full shadow-sm animate-pulse" />
+              <div className="absolute -top-1 right-1/2 transform translate-x-1/2 w-2 h-2 bg-gradient-to-r from-coral-400 to-blush-400 rounded-full shadow-md animate-pulse" />
             )}
           </button>
         );

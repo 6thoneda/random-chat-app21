@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Users, User, Crown, Sparkles } from "lucide-react";
+import { Users, User, Crown, Sparkles, CheckCircle } from "lucide-react";
 
 interface GenderFilterProps {
   isPremium: boolean;
@@ -15,6 +15,8 @@ export default function GenderFilter({
   onUpgrade,
 }: GenderFilterProps) {
   const [selectedGender, setSelectedGender] = useState<string>("any");
+  const [showToast, setShowToast] = useState<boolean>(false);
+  const [toastMessage, setToastMessage] = useState<string>("");
 
   const genderOptions = [
     {
@@ -47,6 +49,18 @@ export default function GenderFilter({
     }
     setSelectedGender(gender);
     onGenderSelect(gender);
+    
+    // Show toast notification
+    const selectedOption = genderOptions.find(option => option.id === gender);
+    if (selectedOption) {
+      setToastMessage(`Gender preference set to: ${selectedOption.label}`);
+      setShowToast(true);
+      
+      // Hide toast after 3 seconds
+      setTimeout(() => {
+        setShowToast(false);
+      }, 3000);
+    }
   };
 
   return (
@@ -60,6 +74,16 @@ export default function GenderFilter({
           )}
         </CardTitle>
       </CardHeader>
+      
+      {/* Toast Notification */}
+      {showToast && (
+        <div className="fixed bottom-24 left-1/2 transform -translate-x-1/2 z-50 animate-slide-up">
+          <div className="bg-green-500 text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2 border border-green-400">
+            <CheckCircle className="h-4 w-4" />
+            <span className="text-sm font-semibold">{toastMessage}</span>
+          </div>
+        </div>
+      )}
       <CardContent className="p-3 sm:p-4">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
           {genderOptions.map((option) => {
