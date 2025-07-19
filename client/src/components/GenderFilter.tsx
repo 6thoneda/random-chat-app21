@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Users, User, Crown } from "lucide-react";
+import { Users, User, Crown, Sparkles } from "lucide-react";
 
 interface GenderFilterProps {
   isPremium: boolean;

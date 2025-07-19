@@ -41,8 +41,8 @@ export const SocketProvider = ({ children }: { children: ReactNode }) => {
       } else if (window.location.hostname === "localhost") {
         socketUrl = "http://localhost:8000";
       } else {
-        // For production or other environments
-        socketUrl = `http://${window.location.hostname}:8000`;
+        // For production or other environments, use port 80
+        socketUrl = `http://${window.location.hostname}:80`;
       }
 
       const newSocket = io(socketUrl, {
