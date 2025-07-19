@@ -17,6 +17,7 @@ import {
   Star,
   Play,
   Globe,
+  Settings,
 } from "lucide-react";
 import GenderFilter from "../components/GenderFilter";
 import PremiumPaywall from "../components/PremiumPaywall";
@@ -214,38 +215,54 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-white/15 via-jasmine-100/25 to-white/15 backdrop-blur-sm"></div>
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-henna-200/15 to-transparent"></div>
 
-          <div className="relative z-10 flex items-center justify-between">
-            {/* App Name & Premium Badge */}
-            <div className="flex flex-col items-start gap-1 sm:gap-2">
-              <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-tight">
-                {t("app.name")}
-              </h1>
-              {isPremium && (
-                <div className="flex items-center gap-1 bg-gradient-to-r from-jasmine-400 to-gulmohar-500 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full shadow-md">
-                  <Crown className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
-                  <span className="text-white text-xs font-bold">PREMIUM</span>
-                </div>
-              )}
+          <div className="relative z-10 space-y-3">
+            {/* Top Row: Logo left, Settings & Coins right */}
+            <div className="flex items-center justify-between">
+              {/* App Name & Premium Badge */}
+              <div className="flex flex-col items-start gap-1 sm:gap-2">
+                <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-white tracking-tight">
+                  {t("app.name")}
+                </h1>
+                {isPremium && (
+                  <div className="flex items-center gap-1 bg-gradient-to-r from-jasmine-400 to-gulmohar-500 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full shadow-md">
+                    <Crown className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
+                    <span className="text-white text-xs font-bold">PREMIUM</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Right-aligned: Settings & Coins */}
+              <div className="flex items-center gap-2">
+                {/* Settings Button */}
+                <Button
+                  onClick={() => navigate("/profile")}
+                  className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold p-2 sm:p-2.5 rounded-full shadow-md transform hover:scale-105 transition-all duration-200 border border-white/30"
+                  title="Settings & Profile"
+                >
+                  <Settings className="h-4 w-4 sm:h-5 sm:w-5" />
+                </Button>
+
+                {/* Coins Button */}
+                <Button
+                  onClick={() => setShowTreasureChest(true)}
+                  disabled={coinsLoading}
+                  className="bg-gradient-to-r from-jasmine-500 to-gulmohar-600 hover:from-jasmine-600 hover:to-gulmohar-700 text-white font-semibold px-3 sm:px-4 py-2 sm:py-2.5 rounded-full shadow-md transform hover:scale-105 transition-all duration-200 text-sm sm:text-base"
+                >
+                  <Coins className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" />
+                  {coinsLoading ? "..." : coins}
+                </Button>
+              </div>
             </div>
 
-            <div className="flex items-center gap-2">
-              {/* Voice Chat Button */}
+            {/* Bottom Row: Voice Match Toggle Bar */}
+            <div className="flex justify-center">
               <Button
                 onClick={handleVoiceChat}
-                className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold px-2 sm:px-3 py-1.5 sm:py-2 rounded-full shadow-md transform hover:scale-105 transition-all duration-200 border border-white/30 text-sm sm:text-base"
+                className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full shadow-md transform hover:scale-105 transition-all duration-200 border border-white/30 text-sm sm:text-base min-w-[200px]"
               >
-                <Mic className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
-                <span className="hidden sm:inline">Voice</span>
-              </Button>
-
-              {/* Coins Button */}
-              <Button
-                onClick={() => setShowTreasureChest(true)}
-                disabled={coinsLoading}
-                className="bg-gradient-to-r from-jasmine-500 to-gulmohar-600 hover:from-jasmine-600 hover:to-gulmohar-700 text-white font-semibold px-2 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-md transform hover:scale-105 transition-all duration-200 text-sm sm:text-base"
-              >
-                <Coins className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
-                {coinsLoading ? "..." : coins}
+                <Mic className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
+                <span>Voice Match Mode</span>
+                <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 ml-2" />
               </Button>
             </div>
           </div>
@@ -307,32 +324,48 @@ export default function Home() {
           {/* Enhanced Main Action Button - Moved to top */}
           <div className="w-full mb-4 sm:mb-6">
             <Button
-              className={`w-full py-4 sm:py-6 lg:py-8 text-lg sm:text-xl lg:text-2xl font-bold rounded-2xl sm:rounded-3xl text-white shadow-2xl transform transition-all duration-300 relative overflow-hidden ${
+              className={`w-full py-6 sm:py-8 lg:py-10 text-xl sm:text-2xl lg:text-3xl font-bold rounded-3xl sm:rounded-[2rem] text-white shadow-2xl transform transition-all duration-300 relative overflow-hidden animate-pulse hover:animate-none ${
                 isConnecting
                   ? "bg-gradient-to-r from-coral-400 to-blush-500 scale-95"
-                  : "bg-gradient-to-r from-peach-500 via-coral-500 to-blush-600 hover:scale-105 hover:shadow-3xl"
+                  : "bg-gradient-to-r from-peach-500 via-coral-500 to-blush-600 hover:scale-105 hover:shadow-3xl hover:animate-bounce"
               }`}
               onClick={handleStartCall}
               disabled={isConnecting}
+              title="Takes <10 seconds to find your perfect match"
             >
               {/* Button Background Animation */}
-              <div className="absolute inset-0 bg-gradient-to-r from-jasmine-200/40 via-white/25 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-jasmine-200/40 via-white/25 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+              
+              {/* Floating hearts animation */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-2 left-4 text-white/30 text-lg animate-bounce" style={{animationDelay: '0s'}}>💕</div>
+                <div className="absolute top-4 right-6 text-white/30 text-sm animate-bounce" style={{animationDelay: '0.5s'}}>✨</div>
+                <div className="absolute bottom-3 left-8 text-white/30 text-base animate-bounce" style={{animationDelay: '1s'}}>💖</div>
+                <div className="absolute bottom-2 right-4 text-white/30 text-xs animate-bounce" style={{animationDelay: '1.5s'}}>🌟</div>
+              </div>
 
               <div className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
                 {isConnecting ? (
                   <>
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    <span>Finding your match...</span>
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 border-3 border-white border-t-transparent rounded-full animate-spin"></div>
+                    <span>Finding your perfect match...</span>
                   </>
                 ) : (
                   <>
-                    <Heart className="h-5 w-5 sm:h-6 sm:w-6" />
+                    <Heart className="h-6 w-6 sm:h-7 sm:w-7 animate-pulse" />
                     <span>{t("home.start")}</span>
-                    <Sparkles className="h-4 w-4 sm:h-5 sm:w-5" />
+                    <Sparkles className="h-5 w-5 sm:h-6 sm:w-6 animate-pulse" />
                   </>
                 )}
               </div>
             </Button>
+            
+            {/* Tooltip-like text below button */}
+            <div className="text-center mt-3">
+              <p className="text-xs sm:text-sm text-gray-600 font-medium animate-pulse">
+                ⚡ Takes less than 10 seconds to find your perfect match
+              </p>
+            </div>
           </div>
 
           {/* Quick Actions */}
