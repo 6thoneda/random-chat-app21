@@ -21,9 +21,9 @@ export default function BottomNavBar() {
   const navItems = [
     { label: t("nav.home"), icon: HomeIcon, path: "/" },
     {
-      label: "Match",
+      label: t("nav.chat"),
       icon: Video,
-      path: "/video-chat",
+      path: "/chat",
     },
     { label: "AI Chat", icon: Bot, path: "/ai-chatbot" },
     {
