@@ -18,6 +18,7 @@ import {
   Play,
   Globe,
   Settings,
+  Bot,
 } from "lucide-react";
 import GenderFilter from "../components/GenderFilter";
 import PremiumPaywall from "../components/PremiumPaywall";
@@ -75,6 +76,7 @@ export default function Home() {
   const [showTreasureChest, setShowTreasureChest] = useState(false);
   const [isConnecting, setIsConnecting] = useState(false);
   const [onlineUsers, setOnlineUsers] = useState(12847);
+  const [activeTab, setActiveTab] = useState<"friends" | "ai">("friends");
 
   // Simulate online users count
   useEffect(() => {
@@ -321,27 +323,86 @@ export default function Home() {
             />
           </div>
 
+          {/* Friends vs AI Chat Tab Switcher */}
+          <div className="w-full mb-6 sm:mb-8">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-2 shadow-lg border border-rose-200">
+              <div className="grid grid-cols-2 gap-1">
+                <button
+                  onClick={() => setActiveTab("friends")}
+                  className={`flex items-center justify-center gap-2 py-4 px-6 rounded-xl font-semibold transition-all duration-300 transform ${
+                    activeTab === "friends"
+                      ? "bg-gradient-to-r from-rose-500 to-pink-600 text-white shadow-lg scale-105"
+                      : "text-gray-600 hover:text-rose-600 hover:bg-rose-50"
+                  }`}
+                >
+                  <Users className="h-5 w-5" />
+                  <span>Meet Friends</span>
+                  {activeTab === "friends" && (
+                    <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                  )}
+                </button>
+                
+                <button
+                  onClick={() => setActiveTab("ai")}
+                  className={`flex items-center justify-center gap-2 py-4 px-6 rounded-xl font-semibold transition-all duration-300 transform ${
+                    activeTab === "ai"
+                      ? "bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-lg scale-105"
+                      : "text-gray-600 hover:text-purple-600 hover:bg-purple-50"
+                  }`}
+                >
+                  <Bot className="h-5 w-5" />
+                  <span>AI Chat</span>
+                  {activeTab === "ai" && (
+                    <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                  )}
+                </button>
+              </div>
+              
+              {/* Tab Description */}
+              <div className="mt-3 text-center">
+                <p className="text-sm text-gray-600 font-medium">
+                  {activeTab === "friends" 
+                    ? "💕 Connect with real people and make lasting friendships"
+                    : "🤖 Chat with AI assistant for practice and fun conversations"
+                  }
+                </p>
+              </div>
+            </div>
+          </div>
           {/* Enhanced Main Action Button - Moved to top */}
           <div className="w-full mb-4 sm:mb-6">
             <Button
               className={`w-full py-6 sm:py-8 lg:py-10 text-xl sm:text-2xl lg:text-3xl font-bold rounded-3xl sm:rounded-[2rem] text-white shadow-2xl transform transition-all duration-300 relative overflow-hidden animate-pulse hover:animate-none ${
                 isConnecting
                   ? "bg-gradient-to-r from-coral-400 to-blush-500 scale-95"
-                  : "bg-gradient-to-r from-peach-500 via-coral-500 to-blush-600 hover:scale-105 hover:shadow-3xl hover:animate-bounce"
+                  : activeTab === "friends"
+                    ? "bg-gradient-to-r from-peach-500 via-coral-500 to-blush-600 hover:scale-105 hover:shadow-3xl hover:animate-bounce"
+                    : "bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-600 hover:scale-105 hover:shadow-3xl hover:animate-bounce"
               }`}
-              onClick={handleStartCall}
+              onClick={activeTab === "friends" ? handleStartCall : () => navigate("/ai-chatbot")}
               disabled={isConnecting}
-              title="Takes <10 seconds to find your perfect match"
+              title={activeTab === "friends" ? "Takes <10 seconds to find your perfect match" : "Start chatting with AI assistant"}
             >
               {/* Button Background Animation */}
               <div className="absolute inset-0 bg-gradient-to-r from-jasmine-200/40 via-white/25 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
               
               {/* Floating hearts animation */}
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-2 left-4 text-white/30 text-lg animate-bounce" style={{animationDelay: '0s'}}>💕</div>
-                <div className="absolute top-4 right-6 text-white/30 text-sm animate-bounce" style={{animationDelay: '0.5s'}}>✨</div>
-                <div className="absolute bottom-3 left-8 text-white/30 text-base animate-bounce" style={{animationDelay: '1s'}}>💖</div>
-                <div className="absolute bottom-2 right-4 text-white/30 text-xs animate-bounce" style={{animationDelay: '1.5s'}}>🌟</div>
+                {activeTab === "friends" ? (
+                  <>
+                    <div className="absolute top-2 left-4 text-white/30 text-lg animate-bounce" style={{animationDelay: '0s'}}>💕</div>
+                    <div className="absolute top-4 right-6 text-white/30 text-sm animate-bounce" style={{animationDelay: '0.5s'}}>✨</div>
+                    <div className="absolute bottom-3 left-8 text-white/30 text-base animate-bounce" style={{animationDelay: '1s'}}>💖</div>
+                    <div className="absolute bottom-2 right-4 text-white/30 text-xs animate-bounce" style={{animationDelay: '1.5s'}}>🌟</div>
+                  </>
+                ) : (
+                  <>
+                    <div className="absolute top-2 left-4 text-white/30 text-lg animate-bounce" style={{animationDelay: '0s'}}>🤖</div>
+                    <div className="absolute top-4 right-6 text-white/30 text-sm animate-bounce" style={{animationDelay: '0.5s'}}>💬</div>
+                    <div className="absolute bottom-3 left-8 text-white/30 text-base animate-bounce" style={{animationDelay: '1s'}}>🧠</div>
+                    <div className="absolute bottom-2 right-4 text-white/30 text-xs animate-bounce" style={{animationDelay: '1.5s'}}>⚡</div>
+                  </>
+                )}
               </div>
 
               <div className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
@@ -352,8 +413,17 @@ export default function Home() {
                   </>
                 ) : (
                   <>
-                    <Heart className="h-6 w-6 sm:h-7 sm:w-7 animate-pulse" />
-                    <span>{t("home.start")}</span>
+                    {activeTab === "friends" ? (
+                      <>
+                        <Heart className="h-6 w-6 sm:h-7 sm:w-7 animate-pulse" />
+                        <span>{t("home.start")}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Bot className="h-6 w-6 sm:h-7 sm:w-7 animate-pulse" />
+                        <span>Start AI Chat</span>
+                      </>
+                    )}
                     <Sparkles className="h-5 w-5 sm:h-6 sm:w-6 animate-pulse" />
                   </>
                 )}
@@ -363,29 +433,26 @@ export default function Home() {
             {/* Tooltip-like text below button */}
             <div className="text-center mt-3">
               <p className="text-xs sm:text-sm text-gray-600 font-medium animate-pulse">
-                ⚡ Takes less than 10 seconds to find your perfect match
+                {activeTab === "friends" 
+                  ? "⚡ Takes less than 10 seconds to find your perfect match"
+                  : "🤖 Instant AI responses - practice your conversation skills"
+                }
               </p>
             </div>
           </div>
 
-          {/* Quick Actions */}
-          <div className="w-full grid grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-6">
-            <Button
-              onClick={() => navigate("/friends")}
-              className="bg-white/80 backdrop-blur-sm text-gray-700 border border-gray-200 hover:bg-white hover:shadow-lg transition-all duration-300 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base"
-            >
-              <Users className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 text-blue-500" />
-              <span className="font-semibold">Friends</span>
-            </Button>
-
-            <Button
-              onClick={() => navigate("/ai-chatbot")}
-              className="bg-white/80 backdrop-blur-sm text-gray-700 border border-gray-200 hover:bg-white hover:shadow-lg transition-all duration-300 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base"
-            >
-              <Globe className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 text-purple-500" />
-              <span className="font-semibold">AI Chat</span>
-            </Button>
-          </div>
+          {/* Secondary Action - View Friends List */}
+          {activeTab === "friends" && (
+            <div className="w-full mb-4 sm:mb-6">
+              <Button
+                onClick={() => navigate("/friends")}
+                className="w-full bg-white/80 backdrop-blur-sm text-gray-700 border border-gray-200 hover:bg-white hover:shadow-lg transition-all duration-300 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base"
+              >
+                <Users className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 text-blue-500" />
+                <span className="font-semibold">View My Friends</span>
+              </Button>
+            </div>
+          )}
 
           {/* Footer Text */}
           <div className="text-xs sm:text-sm text-center text-gray-500 px-2 sm:px-4 leading-relaxed">
