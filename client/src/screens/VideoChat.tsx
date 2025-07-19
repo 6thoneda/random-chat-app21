@@ -1003,23 +1003,23 @@ export default function VideoChat() {
   return (
     <div className="relative min-h-screen w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-4xl mx-auto bg-white flex flex-col items-center justify-between overflow-y-auto">
       {/* Enhanced Top Bar */}
-      <div className="w-full bg-white shadow-sm px-3 sm:px-4 lg:px-6 py-3 sm:py-4 z-20 border-b border-pink-100">
+      <div className="w-full bg-white shadow-sm px-3 sm:px-4 lg:px-6 py-3 sm:py-4 z-20 border-b border-primary-100">
         <div className="flex items-center justify-between">
           <Button
             variant="ghost"
-            className="rounded-full p-2 hover:bg-rose-50"
+            className="rounded-full p-2 hover:bg-primary-50"
             onClick={handleCleanup}
           >
-            <ArrowLeft size={22} className="text-rose-500" />
+            <ArrowLeft size={22} className="text-primary-500" />
           </Button>
 
           <div className="flex-1 flex justify-center">
             <div className="text-center">
-              <span className="font-bold text-xl text-rose-600 tracking-wide block">
+              <span className="font-bold text-xl text-primary-600 tracking-wide block">
                 AjnabiCam
               </span>
               {isFriendCall && (
-                <span className="text-xs text-green-600 font-medium">
+                <span className="text-xs text-mehendi-600 font-medium">
                   Friend Call
                 </span>
               )}
@@ -1029,7 +1029,7 @@ export default function VideoChat() {
           <Button
             onClick={() => setShowTreasureChest(true)}
             disabled={coinsLoading}
-            className="bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-semibold px-3 py-2 rounded-full shadow-md"
+            className="bg-gradient-to-r from-gold-500 to-secondary-600 hover:from-gold-600 hover:to-secondary-700 text-white font-semibold px-3 py-2 rounded-full shadow-md"
           >
             <Coins className="h-4 w-4 mr-1" />
             {coinsLoading ? "..." : coins}
@@ -1052,16 +1052,16 @@ export default function VideoChat() {
 
       {/* Video Streams */}
       <div className="flex-1 flex flex-col items-center justify-start w-full px-2 pb-32 pt-2 relative">
-        <div className="w-full h-[65vh] rounded-3xl shadow-2xl bg-gradient-to-br from-peach-100 via-cream-50 to-blush-100 overflow-hidden relative border-2 border-peach-200/50 flex items-center justify-center">
+        <div className="w-full h-[65vh] rounded-3xl shadow-2xl bg-gradient-to-br from-primary-100 via-accent-50 to-secondary-100 overflow-hidden relative border-2 border-primary-200/50 flex items-center justify-center">
           {remoteStream ? (
             isVoiceOnly ? (
-              <div className="flex flex-col items-center justify-center w-full h-full bg-gradient-to-br from-blue-400 to-teal-400">
+              <div className="flex flex-col items-center justify-center w-full h-full bg-gradient-to-br from-premium-400 to-secondary-400">
                 <div className="text-7xl mb-2">🎙️</div>
                 <p className="text-white text-lg font-semibold drop-shadow">
                   {partnerName}'s Voice
                 </p>
                 {isFriendCall && (
-                  <div className="mt-2 bg-green-500 px-3 py-1 rounded-full">
+                  <div className="mt-2 bg-mehendi-500 px-3 py-1 rounded-full">
                     <span className="text-white text-sm font-bold">Friend</span>
                   </div>
                 )}
@@ -1077,9 +1077,9 @@ export default function VideoChat() {
               />
             )
           ) : (
-            <div className="flex flex-col items-center justify-center w-full h-full bg-gradient-to-br from-rose-100 to-pink-100">
+            <div className="flex flex-col items-center justify-center w-full h-full bg-gradient-to-br from-primary-100 to-accent-100">
               <ClipLoader color={loaderColor} size={40} />
-              <p className="text-gray-600 mt-3 text-sm font-medium">
+              <p className="text-neutral-600 mt-3 text-sm font-medium">
                 {isSearchingForMatch
                   ? "🔍 Finding your perfect match..."
                   : isFriendCall
@@ -1090,19 +1090,19 @@ export default function VideoChat() {
                 <div className="mt-4 flex flex-col items-center">
                   <div className="flex space-x-1 mb-2">
                     <div
-                      className="w-2 h-2 bg-rose-500 rounded-full animate-bounce"
+                      className="w-2 h-2 bg-primary-500 rounded-full animate-bounce"
                       style={{ animationDelay: "0ms" }}
                     ></div>
                     <div
-                      className="w-2 h-2 bg-pink-500 rounded-full animate-bounce"
+                      className="w-2 h-2 bg-accent-500 rounded-full animate-bounce"
                       style={{ animationDelay: "150ms" }}
                     ></div>
                     <div
-                      className="w-2 h-2 bg-purple-500 rounded-full animate-bounce"
+                      className="w-2 h-2 bg-premium-500 rounded-full animate-bounce"
                       style={{ animationDelay: "300ms" }}
                     ></div>
                   </div>
-                  <p className="text-xs text-gray-500 text-center px-4">
+                  <p className="text-xs text-neutral-500 text-center px-4">
                     Finding someone special just for you...
                   </p>
                 </div>
@@ -1112,7 +1112,7 @@ export default function VideoChat() {
 
           {/* My stream as PiP */}
           {myStream && !isVoiceOnly && (
-            <div className="absolute bottom-4 right-4 w-20 h-32 bg-gradient-to-br from-peach-200/90 via-cream-100/90 to-coral-200/90 backdrop-blur-sm rounded-xl shadow-lg border-2 border-peach-300/50 z-30 flex items-center justify-center">
+            <div className="absolute bottom-4 right-4 w-20 h-32 bg-gradient-to-br from-primary-200/90 via-accent-100/90 to-secondary-200/90 backdrop-blur-sm rounded-xl shadow-lg border-2 border-primary-300/50 z-30 flex items-center justify-center">
               <ReactPlayer
                 className="w-full h-full object-cover rounded-xl"
                 url={myStream}
@@ -1126,7 +1126,7 @@ export default function VideoChat() {
 
           {/* Friend indicator overlay */}
           {isFriendCall && remoteStream && (
-            <div className="absolute top-4 left-4 bg-green-500 px-3 py-1 rounded-full z-30">
+            <div className="absolute top-4 left-4 bg-mehendi-500 px-3 py-1 rounded-full z-30">
               <span className="text-white text-sm font-bold">
                 👥 Friend Call
               </span>
@@ -1136,13 +1136,13 @@ export default function VideoChat() {
 
         {/* Voice only card */}
         {myStream && isVoiceOnly && (
-          <div className="w-full h-24 rounded-3xl shadow-2xl bg-gradient-to-br from-purple-400 to-pink-400 overflow-hidden relative border border-rose-100 mt-4 flex flex-col items-center justify-center">
+          <div className="w-full h-24 rounded-3xl shadow-2xl bg-gradient-to-br from-premium-400 to-primary-400 overflow-hidden relative border border-primary-100 mt-4 flex flex-col items-center justify-center">
             <div className="text-4xl mb-1">🎙️</div>
             <p className="text-white text-sm font-semibold drop-shadow">
               Your Voice
             </p>
             {isPremium && (
-              <div className="flex items-center gap-1 bg-yellow-400 px-2 py-1 rounded-full text-xs font-bold text-white mt-1">
+              <div className="flex items-center gap-1 bg-gold-400 px-2 py-1 rounded-full text-xs font-bold text-white mt-1">
                 <Crown className="h-3 w-3" /> PREMIUM
               </div>
             )}
@@ -1152,9 +1152,9 @@ export default function VideoChat() {
 
       {/* Controls */}
       <div className="fixed bottom-0 left-0 w-full z-40 flex flex-col items-center pb-4 max-w-md mx-auto">
-        <div className="w-full flex flex-row justify-center items-center gap-2 bg-white rounded-2xl shadow-2xl px-3 py-2 border border-pink-100">
+        <div className="w-full flex flex-row justify-center items-center gap-2 bg-white rounded-2xl shadow-2xl px-3 py-2 border border-primary-100">
           <Button
-            className="flex-1 mx-1 p-3 bg-rose-500 text-white rounded-xl text-lg font-bold shadow-md"
+            className="flex-1 mx-1 p-3 bg-primary-500 text-white rounded-xl text-lg font-bold shadow-md"
             onClick={handleSkip}
             disabled={remoteChatToken === null}
           >
@@ -1165,8 +1165,8 @@ export default function VideoChat() {
           <Button
             className={`flex-1 mx-1 p-3 rounded-xl text-lg font-bold shadow-md flex items-center justify-center ${
               isCameraOn
-                ? "bg-gray-200 text-rose-500"
-                : "bg-rose-500 text-white"
+                ? "bg-gray-200 text-primary-500"
+                : "bg-primary-500 text-white"
             }`}
             onClick={toggleCamera}
           >
@@ -1175,7 +1175,7 @@ export default function VideoChat() {
 
           <Button
             className={`flex-1 mx-1 p-3 rounded-xl text-lg font-bold shadow-md flex items-center justify-center ${
-              isMicOn ? "bg-gray-200 text-rose-500" : "bg-rose-500 text-white"
+              isMicOn ? "bg-gray-200 text-primary-500" : "bg-primary-500 text-white"
             }`}
             onClick={toggleMic}
           >
@@ -1183,7 +1183,7 @@ export default function VideoChat() {
           </Button>
 
           <Button
-            className="flex-1 mx-1 p-3 bg-fuchsia-500 text-white rounded-xl text-lg font-bold shadow-md"
+            className="flex-1 mx-1 p-3 bg-secondary-500 text-white rounded-xl text-lg font-bold shadow-md"
             onClick={handleScreenShare}
           >
             <ScreenShare size={22} />
@@ -1196,8 +1196,8 @@ export default function VideoChat() {
             <Button
               className={`px-6 py-2 rounded-xl font-semibold shadow-md ${
                 isVoiceOnly
-                  ? "bg-purple-500 text-white"
-                  : "bg-white text-purple-500 border border-purple-300"
+                  ? "bg-premium-500 text-white"
+                  : "bg-white text-premium-500 border border-premium-300"
               }`}
               onClick={toggleVoiceOnlyMode}
             >
@@ -1210,13 +1210,13 @@ export default function VideoChat() {
         {!isFriendCall && (
           <div className="w-full flex flex-row justify-center gap-2 mt-2">
             <Button
-              className="bg-gray-100 text-gray-700 font-semibold rounded-xl px-6 py-2"
+              className="bg-neutral-100 text-neutral-700 font-semibold rounded-xl px-6 py-2"
               onClick={() => setShowBlock(true)}
             >
               Block
             </Button>
             <Button
-              className="bg-rose-100 text-rose-700 font-semibold rounded-xl px-6 py-2"
+              className="bg-primary-100 text-primary-700 font-semibold rounded-xl px-6 py-2"
               onClick={() => setShowReport(true)}
             >
               Report
@@ -1273,12 +1273,12 @@ export default function VideoChat() {
 
       {/* Toast notifications */}
       {reportSubmitted && (
-        <div className="fixed bottom-32 left-1/2 -translate-x-1/2 bg-green-100 text-green-700 px-4 py-2 rounded-full shadow-lg z-50">
+        <div className="fixed bottom-32 left-1/2 -translate-x-1/2 bg-mehendi-100 text-mehendi-700 px-4 py-2 rounded-full shadow-lg z-50">
           Thank you for your report.
         </div>
       )}
       {blockSubmitted && (
-        <div className="fixed bottom-40 left-1/2 -translate-x-1/2 bg-rose-100 text-rose-700 px-4 py-2 rounded-full shadow-lg z-50">
+        <div className="fixed bottom-40 left-1/2 -translate-x-1/2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full shadow-lg z-50">
           User blocked. You won't be matched again.
         </div>
       )}

@@ -446,14 +446,14 @@ const ChatPageContent = ({
   };
 
   return (
-    <div className="max-w-md mx-auto h-screen bg-gradient-to-br from-passion-50 via-romance-25 to-bollywood-50 shadow-xl overflow-hidden flex flex-col relative pb-20">
+    <div className="max-w-md mx-auto h-screen bg-gradient-to-br from-primary-50 via-accent-25 to-gold-50 shadow-xl overflow-hidden flex flex-col relative pb-20">
       {/* Enhanced Header */}
-      <div className="px-6 py-6 bg-gradient-to-br from-passion-600 via-romance-600 to-royal-600 text-white shadow-xl relative overflow-hidden">
+      <div className="px-6 py-6 bg-gradient-to-br from-primary-600 via-accent-600 to-premium-600 text-white shadow-xl relative overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/10 to-white/5"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-pink-300/20 via-transparent to-transparent"></div>
-        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-300/10 to-blue-400/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-rose-300/10 to-pink-400/10 rounded-full blur-2xl"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary-300/20 via-transparent to-transparent"></div>
+        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent-300/10 to-secondary-400/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-primary-300/10 to-accent-400/10 rounded-full blur-2xl"></div>
 
         <div className="relative z-10">
           <div className="flex items-center justify-between mb-6">
@@ -467,11 +467,11 @@ const ChatPageContent = ({
               </button>
               <div className="flex items-center gap-3">
                 <MessageCircle className="h-8 w-8 text-white/90" />
-                <h1 className="text-3xl font-bold tracking-tight">Chats</h1>
+                <h1 className="text-3xl font-bold tracking-tight text-white">Chats</h1>
               </div>
             </div>
             {totalUnreadCount > 0 && (
-              <div className="bg-gradient-to-r from-rose-500 to-pink-600 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-white/20">
+              <div className="bg-gradient-to-r from-primary-500 to-accent-600 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-white/20">
                 <span className="text-sm font-bold flex items-center gap-2">
                   <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                   {totalUnreadCount} new
@@ -482,13 +482,13 @@ const ChatPageContent = ({
 
           {/* Enhanced Search Bar */}
           <div className="relative group">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/60 h-5 w-5 group-focus-within:text-white/80 transition-colors duration-200" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/70 h-5 w-5 group-focus-within:text-white/90 transition-colors duration-200" />
             <Input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search conversations..."
-              className="w-full pl-12 pr-12 py-4 rounded-2xl border-0 bg-white/10 backdrop-blur-md text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:bg-white/20 transition-all duration-300 text-base font-medium shadow-inner"
+              className="w-full pl-12 pr-12 py-4 rounded-2xl border-0 bg-white/15 backdrop-blur-md text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/40 focus:bg-white/25 transition-all duration-300 text-base font-medium shadow-inner"
             />
             {search && (
               <button
@@ -508,8 +508,8 @@ const ChatPageContent = ({
             </span>
             {friendChats.length > 0 && (
               <span className="flex items-center gap-2">
-                <Heart className="h-4 w-4 text-emerald-300" />
-                {friendChats.length} friend{friendChats.length !== 1 ? "s" : ""}
+                <Heart className="h-4 w-4 text-accent-300" />
+                <span className="text-accent-200">{friendChats.length} friend{friendChats.length !== 1 ? "s" : ""}</span>
               </span>
             )}
           </div>
@@ -521,9 +521,9 @@ const ChatPageContent = ({
         {/* Friends Section */}
         {friendChats.length > 0 && (
           <>
-            <div className="px-6 py-4 bg-gradient-to-r from-emerald-50/80 to-green-50/80 border-b border-emerald-100/50 backdrop-blur-sm">
-              <h3 className="text-sm font-bold text-emerald-700 flex items-center gap-3">
-                <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+            <div className="px-6 py-4 bg-gradient-to-r from-accent-50/80 to-primary-50/80 border-b border-accent-100/50 backdrop-blur-sm">
+              <h3 className="text-sm font-bold text-primary-700 flex items-center gap-3">
+                <div className="w-2 h-2 bg-primary-500 rounded-full animate-pulse"></div>
                 <Heart className="h-4 w-4" />
                 Friends ({friendChats.length})
               </h3>
@@ -550,8 +550,8 @@ const ChatPageContent = ({
         {regularChats.length > 0 && (
           <>
             {friendChats.length > 0 && (
-              <div className="px-6 py-4 bg-gradient-to-r from-gray-50/80 to-slate-50/80 border-b border-gray-100/50 backdrop-blur-sm">
-                <h3 className="text-sm font-bold text-gray-700 flex items-center gap-3">
+              <div className="px-6 py-4 bg-gradient-to-r from-neutral-50/80 to-neutral-100/80 border-b border-neutral-100/50 backdrop-blur-sm">
+                <h3 className="text-sm font-bold text-neutral-700 flex items-center gap-3">
                   <MessageCircle className="h-4 w-4" />
                   Recent Chats ({regularChats.length})
                 </h3>
@@ -590,7 +590,7 @@ const ChatPageContent = ({
               <h3 className="text-2xl font-bold text-gray-800 mb-4">
                 {search ? "No chats found" : "Start Your Journey"}
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
+              <p className="text-neutral-600 mb-6 leading-relaxed">
                 {search
                   ? `No results for "${search}". Try searching with different keywords.`
                   : "Ready to meet amazing people? Your first conversation is just a tap away!"}
@@ -598,7 +598,7 @@ const ChatPageContent = ({
               {!search && (
                 <Button
                   onClick={() => navigate("/video-chat")}
-                  className="bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white font-bold px-8 py-3 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
+                  className="bg-gradient-to-r from-primary-600 to-premium-600 hover:from-primary-700 hover:to-premium-700 text-white font-bold px-8 py-3 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-xl"
                 >
                   <Star className="h-4 w-4 mr-2" />
                   Start Chatting
@@ -638,12 +638,12 @@ const ChatItem = ({
     <div
       className={`flex items-center p-5 cursor-pointer relative transition-all duration-300 hover:bg-gradient-to-r hover:from-violet-50/60 hover:to-purple-50/60 hover:shadow-md transform hover:scale-[1.01] active:scale-[0.99] ${
         chat.isFriend
-          ? "bg-gradient-to-r from-emerald-50/40 to-green-50/40"
+          ? "bg-gradient-to-r from-accent-50/40 to-primary-50/40"
           : "bg-white/60 backdrop-blur-sm"
       } ${
         chat.unreadCount > 0
-          ? "bg-gradient-to-r from-violet-50/80 to-purple-50/80 border-l-4 border-violet-400 shadow-sm"
-          : "border-b border-gray-100/30"
+          ? "bg-gradient-to-r from-primary-50/80 to-accent-50/80 border-l-4 border-primary-400 shadow-sm"
+          : "border-b border-neutral-100/30"
       }`}
       onClick={() => {
         if (longPressedChatId !== chat.id) onChatClick(chat);
@@ -664,20 +664,20 @@ const ChatItem = ({
 
         {/* Unread Badge */}
         {chat.unreadCount > 0 && (
-          <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-violet-500 to-purple-600 text-white text-xs font-bold rounded-full flex items-center justify-center shadow-lg animate-pulse border-2 border-white">
+          <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-primary-500 to-premium-600 text-white text-xs font-bold rounded-full flex items-center justify-center shadow-lg animate-pulse border-2 border-white">
             {chat.unreadCount > 9 ? "9+" : chat.unreadCount}
           </div>
         )}
 
         {/* Online Status */}
         {chat.isFriend && chat.time === "Online" && (
-          <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full shadow-sm animate-pulse"></div>
+          <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-mehendi-500 border-2 border-white rounded-full shadow-sm animate-pulse"></div>
         )}
 
         {/* Typing Indicator */}
         {chat.isTyping && (
-          <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-blue-500 border-2 border-white rounded-full shadow-sm">
-            <div className="w-full h-full rounded-full bg-blue-400 animate-ping"></div>
+          <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-secondary-500 border-2 border-white rounded-full shadow-sm">
+            <div className="w-full h-full rounded-full bg-secondary-400 animate-ping"></div>
           </div>
         )}
       </div>
@@ -688,14 +688,14 @@ const ChatItem = ({
             <h2
               className={`truncate transition-colors duration-200 ${
                 chat.unreadCount > 0
-                  ? "font-bold text-violet-700"
-                  : "font-semibold text-gray-800"
+                  ? "font-bold text-primary-700"
+                  : "font-semibold text-neutral-800"
               }`}
             >
               {chat.name}
             </h2>
             {chat.isFriend && (
-              <span className="bg-gradient-to-r from-emerald-100/80 to-green-100/80 text-emerald-700 text-xs px-2 py-1 rounded-full font-semibold border border-emerald-200/50 backdrop-blur-sm flex-shrink-0">
+              <span className="bg-gradient-to-r from-accent-100/80 to-primary-100/80 text-primary-700 text-xs px-2 py-1 rounded-full font-semibold border border-primary-200/50 backdrop-blur-sm flex-shrink-0">
                 Friend
               </span>
             )}
@@ -703,8 +703,8 @@ const ChatItem = ({
           <span
             className={`text-xs font-medium ml-3 flex-shrink-0 ${
               chat.unreadCount > 0
-                ? "text-violet-600 font-bold"
-                : "text-gray-500"
+                ? "text-primary-600 font-bold"
+                : "text-neutral-500"
             }`}
           >
             {chat.time}
@@ -713,15 +713,15 @@ const ChatItem = ({
 
         <div className="flex items-center gap-2">
           {chat.isTyping ? (
-            <div className="flex items-center gap-2 text-blue-600">
+            <div className="flex items-center gap-2 text-secondary-600">
               <div className="flex gap-1">
-                <div className="w-1 h-1 bg-blue-500 rounded-full animate-bounce"></div>
+                <div className="w-1 h-1 bg-secondary-500 rounded-full animate-bounce"></div>
                 <div
-                  className="w-1 h-1 bg-blue-500 rounded-full animate-bounce"
+                  className="w-1 h-1 bg-secondary-500 rounded-full animate-bounce"
                   style={{ animationDelay: "0.1s" }}
                 ></div>
                 <div
-                  className="w-1 h-1 bg-blue-500 rounded-full animate-bounce"
+                  className="w-1 h-1 bg-secondary-500 rounded-full animate-bounce"
                   style={{ animationDelay: "0.2s" }}
                 ></div>
               </div>
@@ -731,8 +731,8 @@ const ChatItem = ({
             <p
               className={`text-sm truncate transition-colors duration-200 ${
                 chat.unreadCount > 0
-                  ? "text-gray-800 font-medium"
-                  : "text-gray-600"
+                  ? "text-neutral-800 font-medium"
+                  : "text-neutral-600"
               }`}
             >
               {chat.lastMessage}
@@ -746,8 +746,8 @@ const ChatItem = ({
           chat.time !== "Online" &&
           !chat.isTyping && (
             <div className="flex items-center gap-1 mt-1">
-              <Clock className="h-3 w-3 text-gray-400" />
-              <span className="text-xs text-gray-500">
+              <Clock className="h-3 w-3 text-neutral-400" />
+              <span className="text-xs text-neutral-500">
                 {formatLastSeen(chat.lastSeen)}
               </span>
             </div>
@@ -756,7 +756,7 @@ const ChatItem = ({
 
       {/* Long Press Actions */}
       {longPressedChatId === chat.id && (
-        <div className="absolute right-4 top-1/2 -translate-y-1/2 z-10 flex gap-2 bg-white/95 backdrop-blur-sm rounded-xl shadow-xl border border-gray-200/50 p-2">
+        <div className="absolute right-4 top-1/2 -translate-y-1/2 z-10 flex gap-2 bg-white/95 backdrop-blur-sm rounded-xl shadow-xl border border-neutral-200/50 p-2">
           <Button
             size="sm"
             variant="destructive"
@@ -775,7 +775,7 @@ const ChatItem = ({
               e.stopPropagation();
               setLongPressedChatId(null);
             }}
-            className="text-xs font-semibold"
+            className="text-xs font-semibold border-neutral-300"
           >
             Cancel
           </Button>

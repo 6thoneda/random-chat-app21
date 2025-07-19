@@ -314,13 +314,13 @@ const ProfilePage: React.FC = () => {
       <div className="flex flex-col items-center">
         <div className="relative group">
           {/* Larger circular profile image */}
-          <div className="w-40 h-40 rounded-full bg-gradient-to-br from-passion-200 via-romance-300 to-royal-300 flex justify-center items-center overflow-hidden cursor-pointer border-4 border-white shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 relative">
+          <div className="w-40 h-40 rounded-full bg-gradient-to-br from-primary-200 via-accent-300 to-premium-300 flex justify-center items-center overflow-hidden cursor-pointer border-4 border-white shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105 relative">
             {/* Animated border ring */}
-            <div className="absolute inset-0 rounded-full border-4 border-passion-400 animate-pulse opacity-30"></div>
+            <div className="absolute inset-0 rounded-full border-4 border-primary-400 animate-pulse opacity-30"></div>
 
             {/* Premium glow effect for premium users */}
             {isPremium && (
-              <div className="absolute inset-0 rounded-full border-4 border-yellow-400 animate-pulse shadow-[0_0_20px_rgba(251,191,36,0.6)]"></div>
+              <div className="absolute inset-0 rounded-full border-4 border-gold-400 animate-pulse shadow-[0_0_20px_rgba(247,200,115,0.6)]"></div>
             )}
 
             {profileImage ? (
@@ -331,7 +331,7 @@ const ProfilePage: React.FC = () => {
               />
             ) : (
               <div className="w-full h-full bg-gray-200 rounded-full flex items-center justify-center">
-                <div className="text-passion-700 text-xs font-bold text-center romantic-text-glow">
+                <div className="text-primary-700 text-xs font-bold text-center">
                   {t("profile.addPhoto")}
                 </div>
               </div>
@@ -349,10 +349,10 @@ const ProfilePage: React.FC = () => {
           {/* Camera button with premium styling */}
           <button
             onClick={handleImageUploadClick}
-            className={`absolute -bottom-2 -right-2 text-white p-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-110 hover:rotate-12 romantic-button ${
+            className={`absolute -bottom-2 -right-2 text-white p-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-110 hover:rotate-12 ${
               isPremium
-                ? "bg-gradient-to-r from-marigold-500 via-bollywood-500 to-coral-500"
-                : "bg-gradient-to-r from-passion-500 to-romance-600"
+                ? "bg-gradient-to-r from-gold-500 via-premium-500 to-secondary-500"
+                : "bg-gradient-to-r from-primary-500 to-accent-600"
             }`}
           >
             <Camera className="h-5 w-5" />
@@ -360,7 +360,7 @@ const ProfilePage: React.FC = () => {
 
           {/* Premium crown indicator */}
           {isPremium && (
-            <div className="absolute -top-3 -right-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full p-2 shadow-lg animate-bounce">
+            <div className="absolute -top-3 -right-3 bg-gradient-to-r from-gold-400 to-secondary-500 rounded-full p-2 shadow-lg animate-bounce">
               <Crown className="h-5 w-5 text-white" />
             </div>
           )}
@@ -421,24 +421,24 @@ const ProfilePage: React.FC = () => {
                 type="text"
                 value={username}
                 onChange={handleUsernameChange}
-                className="flex-grow px-4 py-3 rounded-xl border-2 border-passion-300 focus:outline-none focus:ring-2 focus:ring-passion-400 focus:border-passion-500 bg-passion-50 text-lg font-semibold transition-all duration-200 romantic-input"
+                className="flex-grow px-4 py-3 rounded-xl border-2 border-primary-300 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-primary-500 bg-primary-50 text-lg font-semibold transition-all duration-200"
                 autoFocus
               />
               <Button
                 onClick={handleUsernameSave}
-                className="bg-gradient-to-r from-marigold-500 to-bollywood-600 text-white px-4 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="bg-gradient-to-r from-gold-500 to-premium-600 text-white px-4 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
                 <Check className="h-4 w-4" />
               </Button>
             </div>
           ) : (
             <div className="flex items-center gap-3">
-              <div className="flex-grow text-center px-4 py-3 rounded-xl bg-gradient-to-r from-passion-50 to-romance-50 text-passion-800 font-bold text-xl border-2 border-passion-200 shadow-sm">
+              <div className="flex-grow text-center px-4 py-3 rounded-xl bg-gradient-to-r from-primary-50 to-accent-50 text-primary-800 font-bold text-xl border-2 border-primary-200 shadow-sm">
                 {username}
               </div>
               <Button
                 onClick={() => setIsEditingUsername(true)}
-                className="bg-gradient-to-r from-royal-500 to-royal-600 text-white px-4 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="bg-gradient-to-r from-premium-500 to-premium-600 text-white px-4 py-3 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
                 <Edit3 className="h-4 w-4" />
               </Button>
@@ -447,28 +447,28 @@ const ProfilePage: React.FC = () => {
         </div>
 
         {/* User Level Badge */}
-        <div className="mt-4 flex items-center gap-2 bg-gradient-to-r from-royal-100 to-passion-100 px-4 py-2 rounded-full border border-royal-200">
-          <Medal className="h-5 w-5 text-royal-600" />
-          <span className="text-royal-700 font-semibold">Level 5 Chatter</span>
+        <div className="mt-4 flex items-center gap-2 bg-gradient-to-r from-premium-100 to-primary-100 px-4 py-2 rounded-full border border-premium-200">
+          <Medal className="h-5 w-5 text-premium-600" />
+          <span className="text-premium-700 font-semibold">Level 5 Chatter</span>
         </div>
       </div>
 
       {/* Quick Stats Cards */}
       <div className="grid grid-cols-2 gap-3">
-        <Card className="bg-gradient-to-br from-marigold-50 to-marigold-100 border-marigold-200">
+        <Card className="bg-gradient-to-br from-gold-50 to-gold-100 border-gold-200">
           <CardContent className="p-4 text-center">
-            <div className="text-2xl font-bold text-marigold-700">
+            <div className="text-2xl font-bold text-gold-700">
               {coinsLoading ? "..." : coins}
             </div>
-            <div className="text-xs text-marigold-600 font-medium">Coins</div>
+            <div className="text-xs text-gold-600 font-medium">Coins</div>
           </CardContent>
         </Card>
-        <Card className="bg-gradient-to-br from-coral-50 to-coral-100 border-coral-200">
+        <Card className="bg-gradient-to-br from-secondary-50 to-secondary-100 border-secondary-200">
           <CardContent className="p-4 text-center">
-            <div className="text-2xl font-bold text-coral-700">
+            <div className="text-2xl font-bold text-secondary-700">
               {userStats.friendsMade}
             </div>
-            <div className="text-xs text-coral-600 font-medium">
+            <div className="text-xs text-secondary-600 font-medium">
               Friends Made
             </div>
           </CardContent>
@@ -476,30 +476,30 @@ const ProfilePage: React.FC = () => {
       </div>
 
       {/* Referral Section */}
-      <Card className="bg-gradient-to-r from-bollywood-50 to-marigold-50 border-2 border-bollywood-200 shadow-xl relative overflow-hidden">
+      <Card className="bg-gradient-to-r from-gold-50 to-premium-50 border-2 border-gold-200 shadow-xl relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-white/20 animate-pulse"></div>
         <CardHeader className="relative z-10">
-          <CardTitle className="flex items-center gap-3 text-bollywood-800">
-            <div className="bg-bollywood-100 p-2 rounded-full">
-              <Gift className="h-6 w-6 text-bollywood-600" />
+          <CardTitle className="flex items-center gap-3 text-gold-800">
+            <div className="bg-gold-100 p-2 rounded-full">
+              <Gift className="h-6 w-6 text-gold-600" />
             </div>
             {t("profile.referral.title")}
           </CardTitle>
         </CardHeader>
         <CardContent className="relative z-10 space-y-4">
-          <div className="bg-white rounded-xl p-4 border border-bollywood-200 shadow-lg">
+          <div className="bg-white rounded-xl p-4 border border-gold-200 shadow-lg">
             <div className="flex items-center justify-between">
               <div>
-                <span className="text-sm text-bollywood-600 font-bold">
+                <span className="text-sm text-gold-600 font-bold">
                   {t("profile.referral.id")}
                 </span>
-                <div className="font-mono text-bollywood-800 text-lg font-extrabold tracking-wider">
+                <div className="font-mono text-gold-800 text-lg font-extrabold tracking-wider">
                   {referralId}
                 </div>
               </div>
               <Button
                 onClick={handleCopyReferral}
-                className="bg-gradient-to-r from-bollywood-500 to-marigold-600 text-white px-4 py-2 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="bg-gradient-to-r from-gold-500 to-premium-600 text-white px-4 py-2 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
                 <Copy className="h-4 w-4 mr-2" />
                 {t("profile.referral.copy")}
@@ -507,10 +507,10 @@ const ProfilePage: React.FC = () => {
             </div>
           </div>
           <div className="text-center">
-            <p className="text-sm text-bollywood-700 font-bold mb-2">
+            <p className="text-sm text-gold-700 font-bold mb-2">
               {t("profile.referral.reward")}
             </p>
-            <p className="text-xs text-bollywood-600 font-medium">
+            <p className="text-xs text-gold-600 font-medium">
               {t("profile.referral.share")}
             </p>
           </div>
@@ -524,7 +524,7 @@ const ProfilePage: React.FC = () => {
       {achievements.map((achievement) => (
         <Card
           key={achievement.id}
-          className={`${achievement.unlocked ? "bg-gradient-to-r from-bollywood-50 to-marigold-50 border-bollywood-200" : "bg-gray-50 border-gray-200"} transition-all duration-300 hover:shadow-lg`}
+          className={`${achievement.unlocked ? "bg-gradient-to-r from-gold-50 to-premium-50 border-gold-200" : "bg-gray-50 border-gray-200"} transition-all duration-300 hover:shadow-lg`}
         >
           <CardContent className="p-4">
             <div className="flex items-center gap-4">
@@ -535,18 +535,18 @@ const ProfilePage: React.FC = () => {
               </div>
               <div className="flex-1">
                 <h3
-                  className={`font-bold ${achievement.unlocked ? "text-bollywood-800" : "text-gray-600"}`}
+                  className={`font-bold ${achievement.unlocked ? "text-gold-800" : "text-gray-600"}`}
                 >
                   {achievement.title}
                 </h3>
                 <p
-                  className={`text-sm ${achievement.unlocked ? "text-bollywood-600" : "text-gray-500"}`}
+                  className={`text-sm ${achievement.unlocked ? "text-gold-600" : "text-gray-500"}`}
                 >
                   {achievement.description}
                 </p>
               </div>
               {achievement.unlocked && (
-                <div className="bg-bollywood-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="bg-gold-500 text-white px-3 py-1 rounded-full text-xs font-bold">
                   Unlocked
                 </div>
               )}
@@ -564,9 +564,9 @@ const ProfilePage: React.FC = () => {
           {t("app.name")} - {t("profile.title")}
         </title>
       </Helmet>
-      <main className="flex flex-col items-center min-h-screen w-full max-w-md mx-auto bg-gradient-to-br from-passion-50 via-romance-25 to-bollywood-50 px-2 py-4 relative pb-20">
+      <main className="flex flex-col items-center min-h-screen w-full max-w-md mx-auto bg-gradient-to-br from-primary-50 via-accent-25 to-gold-50 px-2 py-4 relative pb-20">
         {/* Enhanced Header */}
-        <div className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-passion-500 via-romance-500 to-royal-600 text-white font-bold text-xl rounded-t-2xl shadow-xl relative overflow-hidden">
+        <div className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-primary-500 via-accent-500 to-premium-600 text-white font-bold text-xl rounded-t-2xl shadow-xl relative overflow-hidden">
           <div className="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
 
@@ -590,39 +590,39 @@ const ProfilePage: React.FC = () => {
         <div className="w-full flex flex-col bg-white/90 backdrop-blur-sm rounded-b-2xl border border-rose-100 shadow-2xl mb-6 overflow-hidden">
           {/* Premium Status Banner */}
           {isPremium ? (
-            <div className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 p-3 text-white text-center relative overflow-hidden">
+            <div className="bg-gradient-to-r from-gold-400 via-premium-500 to-secondary-500 p-3 text-white text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent animate-pulse"></div>
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-2 mb-1">
-                  <Crown className="h-5 w-5 text-yellow-200" />
+                  <Crown className="h-5 w-5 text-gold-200" />
                   <h2 className="text-base font-bold">
                     {t("profile.premium.active")}
                   </h2>
                 </div>
-                <p className="text-yellow-200 text-xs">
+                <p className="text-gold-200 text-xs">
                   Expires: {formatPremiumExpiry()}
                 </p>
               </div>
             </div>
           ) : (
             <div
-              className="bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 p-3 text-white text-center cursor-pointer relative overflow-hidden hover:shadow-lg transition-all duration-300"
+              className="bg-gradient-to-r from-premium-500 via-primary-500 to-accent-500 p-3 text-white text-center cursor-pointer relative overflow-hidden hover:shadow-lg transition-all duration-300"
               onClick={handlePremiumClick}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/10 animate-pulse"></div>
               <div className="relative z-10">
                 <div className="flex items-center justify-center gap-2 mb-1">
-                  <Crown className="h-5 w-5 text-yellow-200" />
+                  <Crown className="h-5 w-5 text-gold-200" />
                   <h2 className="text-base font-bold">
                     {t("profile.premium.upgrade")}
                   </h2>
                 </div>
-                <div className="flex justify-center gap-3 text-purple-100 text-xs font-medium mb-1">
+                <div className="flex justify-center gap-3 text-premium-100 text-xs font-medium mb-1">
                   <span>{t("profile.premium.features.gender")}</span>
                   <span>{t("profile.premium.features.voice")}</span>
                   <span>{t("profile.premium.features.unlimited")}</span>
                 </div>
-                <div className="text-yellow-200 text-xs font-bold">
+                <div className="text-gold-200 text-xs font-bold">
                   ✨ Tap to upgrade! ✨
                 </div>
               </div>
@@ -640,8 +640,8 @@ const ProfilePage: React.FC = () => {
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`flex-1 flex items-center justify-center gap-2 py-3 px-4 font-semibold transition-all duration-200 ${
                   activeTab === tab.id
-                    ? "bg-white text-passion-600 border-b-2 border-passion-500"
-                    : "text-gray-600 hover:text-passion-500 hover:bg-gray-100"
+                    ? "bg-white text-primary-600 border-b-2 border-primary-500"
+                    : "text-gray-600 hover:text-primary-500 hover:bg-gray-100"
                 }`}
               >
                 <tab.icon className="h-4 w-4" />
@@ -658,9 +658,9 @@ const ProfilePage: React.FC = () => {
 
           {/* Settings Section */}
           <div className="p-4 bg-gray-50 border-t border-gray-200">
-            <h3 className="font-bold text-passion-800 text-base flex items-center gap-2 mb-3">
-              <div className="bg-passion-100 p-1.5 rounded-full">
-                <Settings className="h-4 w-4 text-passion-600" />
+            <h3 className="font-bold text-primary-800 text-base flex items-center gap-2 mb-3">
+              <div className="bg-primary-100 p-1.5 rounded-full">
+                <Settings className="h-4 w-4 text-primary-600" />
               </div>
               {t("profile.settings")}
             </h3>
@@ -669,59 +669,59 @@ const ProfilePage: React.FC = () => {
               {/* Storage Debug Button (Development) */}
               <button
                 onClick={() => navigate("/storage-debug")}
-                className="flex flex-col items-center p-3 rounded-lg bg-white hover:bg-blue-50 transition-all duration-300 border border-blue-200 shadow-sm hover:shadow-md"
+                className="flex flex-col items-center p-3 rounded-lg bg-white hover:bg-secondary-50 transition-all duration-300 border border-secondary-200 shadow-sm hover:shadow-md"
               >
-                <Database className="h-5 w-5 text-blue-600 mb-1" />
-                <span className="text-blue-700 font-semibold text-xs">
+                <Database className="h-5 w-5 text-secondary-600 mb-1" />
+                <span className="text-secondary-700 font-semibold text-xs">
                   Storage Debug
                 </span>
               </button>
               <button
                 onClick={() => handleSettingsClick("privacy")}
-                className="flex flex-col items-center p-3 rounded-lg bg-white hover:bg-passion-50 transition-all duration-300 border border-passion-200 shadow-sm hover:shadow-md"
+                className="flex flex-col items-center p-3 rounded-lg bg-white hover:bg-primary-50 transition-all duration-300 border border-primary-200 shadow-sm hover:shadow-md"
               >
-                <Shield className="h-5 w-5 text-passion-600 mb-1" />
-                <span className="text-passion-700 font-semibold text-xs">
+                <Shield className="h-5 w-5 text-primary-600 mb-1" />
+                <span className="text-primary-700 font-semibold text-xs">
                   Privacy
                 </span>
               </button>
 
               <button
                 onClick={() => handleSettingsClick("notifications")}
-                className="flex flex-col items-center p-3 rounded-lg bg-white hover:bg-passion-50 transition-all duration-300 border border-passion-200 shadow-sm hover:shadow-md"
+                className="flex flex-col items-center p-3 rounded-lg bg-white hover:bg-primary-50 transition-all duration-300 border border-primary-200 shadow-sm hover:shadow-md"
               >
-                <Bell className="h-5 w-5 text-passion-600 mb-1" />
-                <span className="text-passion-700 font-semibold text-xs">
+                <Bell className="h-5 w-5 text-primary-600 mb-1" />
+                <span className="text-primary-700 font-semibold text-xs">
                   Notifications
                 </span>
               </button>
 
               <button
                 onClick={() => handleSettingsClick("account")}
-                className="flex flex-col items-center p-3 rounded-lg bg-white hover:bg-passion-50 transition-all duration-300 border border-passion-200 shadow-sm hover:shadow-md"
+                className="flex flex-col items-center p-3 rounded-lg bg-white hover:bg-primary-50 transition-all duration-300 border border-primary-200 shadow-sm hover:shadow-md"
               >
-                <User className="h-5 w-5 text-passion-600 mb-1" />
-                <span className="text-passion-700 font-semibold text-xs">
+                <User className="h-5 w-5 text-primary-600 mb-1" />
+                <span className="text-primary-700 font-semibold text-xs">
                   Account
                 </span>
               </button>
 
               <button
                 onClick={() => setShowLanguageSelector(true)}
-                className="flex flex-col items-center p-3 rounded-lg bg-white hover:bg-passion-50 transition-all duration-300 border border-passion-200 shadow-sm hover:shadow-md"
+                className="flex flex-col items-center p-3 rounded-lg bg-white hover:bg-primary-50 transition-all duration-300 border border-primary-200 shadow-sm hover:shadow-md"
               >
-                <Globe className="h-5 w-5 text-passion-600 mb-1" />
-                <span className="text-passion-700 font-semibold text-xs">
+                <Globe className="h-5 w-5 text-primary-600 mb-1" />
+                <span className="text-primary-700 font-semibold text-xs">
                   Language
                 </span>
               </button>
 
               <button
                 onClick={() => setShowHelpModal(true)}
-                className="flex flex-col items-center p-3 rounded-lg bg-white hover:bg-passion-50 transition-all duration-300 border border-passion-200 shadow-sm hover:shadow-md"
+                className="flex flex-col items-center p-3 rounded-lg bg-white hover:bg-primary-50 transition-all duration-300 border border-primary-200 shadow-sm hover:shadow-md"
               >
-                <HelpCircle className="h-5 w-5 text-passion-600 mb-1" />
-                <span className="text-passion-700 font-semibold text-xs">
+                <HelpCircle className="h-5 w-5 text-primary-600 mb-1" />
+                <span className="text-primary-700 font-semibold text-xs">
                   Help
                 </span>
               </button>

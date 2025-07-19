@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-// Force rebuild - Updated with beautiful peach colors
 export default {
   darkMode: ["class"],
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -13,7 +12,98 @@ export default {
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        // Enhanced Indian romantic color palette - more flirty and appealing
+        
+        // New Main Color Scheme
+        primary: {
+          DEFAULT: "#F44B7F", // Flamingo Pink
+          50: "#fef2f4",
+          100: "#fde6ea",
+          200: "#fbd0d9",
+          300: "#f7aab9",
+          400: "#f27a93",
+          500: "#F44B7F", // Main
+          600: "#e11d48",
+          700: "#be123c",
+          800: "#9f1239",
+          900: "#881337",
+          950: "#4c0519",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        accent: {
+          DEFAULT: "#FFB6B9", // Blush Peach
+          50: "#fff8f8",
+          100: "#fff0f0",
+          200: "#ffe4e4",
+          300: "#ffcdcd",
+          400: "#ffa8a8",
+          500: "#FFB6B9", // Main
+          600: "#ff7a7a",
+          700: "#ff4757",
+          800: "#e63946",
+          900: "#c92a2a",
+          950: "#7a1e1e",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        secondary: {
+          DEFAULT: "#FF6F61", // Coral Orange
+          50: "#fff4f2",
+          100: "#ffe6e2",
+          200: "#ffd1ca",
+          300: "#ffb3a5",
+          400: "#ff8a70",
+          500: "#FF6F61", // Main
+          600: "#f04438",
+          700: "#d92d20",
+          800: "#b42318",
+          900: "#912018",
+          950: "#4f0d0a",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        neutral: {
+          light: "#FFF8F9", // Snow White
+          dark: "#2F2F2F", // Gunmetal Gray
+          50: "#FFF8F9",
+          100: "#f8f9fa",
+          200: "#e9ecef",
+          300: "#dee2e6",
+          400: "#ced4da",
+          500: "#adb5bd",
+          600: "#6c757d",
+          700: "#495057",
+          800: "#343a40",
+          900: "#2F2F2F",
+          950: "#1a1a1a",
+        },
+        premium: {
+          DEFAULT: "#8E44AD", // Royal Violet
+          50: "#f3e8ff",
+          100: "#e9d5ff",
+          200: "#d8b4fe",
+          300: "#c084fc",
+          400: "#a855f7",
+          500: "#8E44AD", // Main
+          600: "#7c3aed",
+          700: "#6b21a8",
+          800: "#581c87",
+          900: "#4c1d95",
+          950: "#2e1065",
+        },
+        gold: {
+          DEFAULT: "#F7C873", // Soft Gold
+          50: "#fffbeb",
+          100: "#fef3c7",
+          200: "#fde68a",
+          300: "#fcd34d",
+          400: "#fbbf24",
+          500: "#F7C873", // Main
+          600: "#d97706",
+          700: "#b45309",
+          800: "#92400e",
+          900: "#78350f",
+          950: "#451a03",
+        },
+
+        // Keep existing romantic colors for backward compatibility
         romance: {
           25: "#fffbfb",
           50: "#fef7f7",
@@ -189,21 +279,6 @@ export default {
           950: "#7a2e10",
         },
         // Soft coral for accents
-        coral: {
-          25: "#fffefe",
-          50: "#fff7f7",
-          100: "#ffebeb",
-          200: "#ffd7d7",
-          300: "#ffb3b3",
-          400: "#ff8a8a",
-          500: "#ff6b6b",
-          600: "#ff4757",
-          700: "#ff3742",
-          800: "#e63946",
-          900: "#c92a2a",
-          950: "#a61e1e",
-        },
-        // Romantic blush
         blush: {
           25: "#fffbfb",
           50: "#fff5f5",
@@ -286,21 +361,9 @@ export default {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",

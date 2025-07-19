@@ -121,8 +121,9 @@ export default function StorageDebugPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-passion-50 via-romance-25 to-bollywood-50">
+    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-accent-25 to-gold-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-passion-600 via-romance-600 to-royal-600 text-white p-6 shadow-xl">
+      <div className="bg-gradient-to-r from-primary-600 via-accent-600 to-premium-600 text-white p-6 shadow-xl">
         <div className="max-w-md mx-auto flex items-center gap-4">
           <button
             onClick={() => navigate(-1)}
@@ -145,7 +146,7 @@ export default function StorageDebugPage() {
       <div className="max-w-md mx-auto p-6 space-y-6">
         {/* Connection Status */}
         <div>
-          <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+          <h2 className="text-lg font-semibold text-neutral-800 mb-4 flex items-center gap-2">
             <Settings className="w-5 h-5" />
             Connection Status
           </h2>
@@ -154,17 +155,17 @@ export default function StorageDebugPage() {
 
         {/* File Upload Tests */}
         <div>
-          <h2 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+          <h2 className="text-lg font-semibold text-neutral-800 mb-4 flex items-center gap-2">
             <Upload className="w-5 h-5" />
             File Upload Tests
           </h2>
 
           <div className="space-y-3">
             <div className="bg-white rounded-xl border p-4">
-              <h3 className="font-medium text-gray-700 mb-3">
+              <h3 className="font-medium text-neutral-700 mb-3">
                 Upload Test File
               </h3>
-              <p className="text-sm text-gray-600 mb-3">
+              <p className="text-sm text-neutral-600 mb-3">
                 Select an image to test all upload functions (profile, chat,
                 temp)
               </p>
@@ -174,11 +175,11 @@ export default function StorageDebugPage() {
                 accept="image/*"
                 onChange={handleFileTest}
                 disabled={isTestingFile}
-                className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"
+                className="block w-full text-sm text-neutral-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100"
               />
 
               {isTestingFile && (
-                <div className="mt-3 flex items-center gap-2 text-sm text-blue-600">
+                <div className="mt-3 flex items-center gap-2 text-sm text-secondary-600">
                   <RefreshCw className="w-4 h-4 animate-spin" />
                   Testing uploads...
                 </div>
@@ -191,7 +192,7 @@ export default function StorageDebugPage() {
         {testResults.length > 0 && (
           <div>
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-semibold text-gray-800 flex items-center gap-2">
+              <h2 className="text-lg font-semibold text-neutral-800 flex items-center gap-2">
                 <FileText className="w-5 h-5" />
                 Test Results ({testResults.length})
               </h2>
@@ -212,25 +213,25 @@ export default function StorageDebugPage() {
                   key={index}
                   className={`bg-white rounded-xl border p-4 ${
                     result.isConnected
-                      ? "border-green-200 bg-green-50/50"
-                      : "border-red-200 bg-red-50/50"
+                      ? "border-mehendi-200 bg-mehendi-50/50"
+                      : "border-secondary-200 bg-secondary-50/50"
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <ImageIcon className="w-5 h-5 text-gray-600" />
-                    <h3 className="font-medium text-gray-800">{result.test}</h3>
+                    <ImageIcon className="w-5 h-5 text-neutral-600" />
+                    <h3 className="font-medium text-neutral-800">{result.test}</h3>
                     <span
                       className={`text-xs px-2 py-1 rounded-full ${
                         result.isConnected
-                          ? "bg-green-100 text-green-700"
-                          : "bg-red-100 text-red-700"
+                          ? "bg-mehendi-100 text-mehendi-700"
+                          : "bg-secondary-100 text-secondary-700"
                       }`}
                     >
                       {result.isConnected ? "Success" : "Failed"}
                     </span>
                   </div>
 
-                  <p className="text-sm text-gray-600 mb-2">{result.message}</p>
+                  <p className="text-sm text-neutral-600 mb-2">{result.message}</p>
 
                   {result.details && (
                     <div className="bg-gray-50 rounded-lg p-2 text-xs">
@@ -240,7 +241,7 @@ export default function StorageDebugPage() {
                     </div>
                   )}
 
-                  <div className="text-xs text-gray-500 mt-2">
+                  <div className="text-xs text-neutral-500 mt-2">
                     {result.timestamp.toLocaleTimeString()}
                   </div>
                 </div>
@@ -250,9 +251,9 @@ export default function StorageDebugPage() {
         )}
 
         {/* Instructions */}
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-          <h3 className="font-medium text-blue-800 mb-2">How to Use</h3>
-          <ul className="text-sm text-blue-700 space-y-1">
+        <div className="bg-secondary-50 border border-secondary-200 rounded-xl p-4">
+          <h3 className="font-medium text-secondary-800 mb-2">How to Use</h3>
+          <ul className="text-sm text-secondary-700 space-y-1">
             <li>• Check connection status at the top</li>
             <li>• Use "Test" buttons to verify connectivity</li>
             <li>• Upload an image to test all upload functions</li>

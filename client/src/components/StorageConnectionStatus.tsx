@@ -92,11 +92,11 @@ export default function StorageConnectionStatus({
 
     switch (connectionResult.status) {
       case "success":
-        return "border-passion-200 bg-passion-50";
+        return "border-primary-200 bg-primary-50";
       case "error":
-        return "border-coral-200 bg-coral-50";
+        return "border-secondary-200 bg-secondary-50";
       default:
-        return "border-marigold-200 bg-marigold-50";
+        return "border-gold-200 bg-gold-50";
     }
   };
 

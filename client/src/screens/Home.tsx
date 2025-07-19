@@ -172,39 +172,40 @@ export default function Home() {
         </title>
       </Helmet>
       <main className="flex flex-col min-h-screen w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-4xl mx-auto bg-gradient-to-br from-peach-25 via-cream-50 to-blush-50 relative pb-16 sm:pb-20 lg:pb-24 overflow-hidden">
+      <main className="flex flex-col min-h-screen w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-4xl mx-auto bg-gradient-to-br from-neutral-light via-accent-50 to-primary-50 relative pb-16 sm:pb-20 lg:pb-24 overflow-hidden">
         {/* Enhanced Animated Background Elements with Indian flair */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-6 sm:top-10 left-6 sm:left-10 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-sindoor-300 to-henna-400 rounded-full opacity-20 animate-pulse"></div>
-          <div className="absolute top-20 sm:top-32 right-4 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-royal-300 to-gulmohar-400 rounded-full opacity-30 animate-bounce"></div>
+          <div className="absolute top-6 sm:top-10 left-6 sm:left-10 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-gradient-to-br from-primary-300 to-secondary-400 rounded-full opacity-20 animate-pulse"></div>
+          <div className="absolute top-20 sm:top-32 right-4 sm:right-8 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-premium-300 to-secondary-400 rounded-full opacity-30 animate-bounce"></div>
           <div
-            className="absolute bottom-32 sm:bottom-40 left-4 sm:left-6 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-jasmine-300 to-sindoor-400 rounded-full opacity-25 animate-pulse"
+            className="absolute bottom-32 sm:bottom-40 left-4 sm:left-6 w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-gold-300 to-primary-400 rounded-full opacity-25 animate-pulse"
             style={{ animationDelay: "1s" }}
           ></div>
           <div
-            className="absolute bottom-48 sm:bottom-60 right-8 sm:right-12 w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-passion-400 to-royal-400 rounded-full opacity-20 animate-bounce"
+            className="absolute bottom-48 sm:bottom-60 right-8 sm:right-12 w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-primary-400 to-premium-400 rounded-full opacity-20 animate-bounce"
             style={{ animationDelay: "2s" }}
           ></div>
           {/* Add romantic Indian symbols */}
           <div
-            className="absolute top-16 sm:top-20 right-16 sm:right-20 text-sindoor-400 text-lg sm:text-xl lg:text-2xl opacity-40 animate-pulse"
+            className="absolute top-16 sm:top-20 right-16 sm:right-20 text-primary-400 text-lg sm:text-xl lg:text-2xl opacity-40 animate-pulse"
             style={{ animationDelay: "0.5s" }}
           >
             💕
           </div>
           <div
-            className="absolute bottom-64 sm:bottom-80 left-12 sm:left-16 text-henna-400 text-base sm:text-lg lg:text-xl opacity-35 animate-bounce"
+            className="absolute bottom-64 sm:bottom-80 left-12 sm:left-16 text-secondary-400 text-base sm:text-lg lg:text-xl opacity-35 animate-bounce"
             style={{ animationDelay: "1.5s" }}
           >
             🌸
           </div>
           <div
-            className="absolute top-48 sm:top-60 left-6 sm:left-8 text-jasmine-400 text-sm sm:text-base lg:text-lg opacity-30 animate-pulse"
+            className="absolute top-48 sm:top-60 left-6 sm:left-8 text-gold-400 text-sm sm:text-base lg:text-lg opacity-30 animate-pulse"
             style={{ animationDelay: "2.5s" }}
           >
             ✨
           </div>
           <div
-            className="absolute top-64 sm:top-80 right-4 sm:right-6 text-gulmohar-400 text-xs sm:text-sm lg:text-base opacity-25 animate-bounce"
+            className="absolute top-64 sm:top-80 right-4 sm:right-6 text-secondary-400 text-xs sm:text-sm lg:text-base opacity-25 animate-bounce"
             style={{ animationDelay: "3s" }}
           >
             🪷
@@ -212,10 +213,10 @@ export default function Home() {
         </div>
 
         {/* Enhanced Header with Indian romantic colors */}
-        <header className="w-full bg-gradient-to-r from-peach-400 via-coral-400 to-blush-500 shadow-lg px-4 sm:px-6 lg:px-8 py-4 sm:py-6 border-b border-peach-200 relative overflow-hidden">
+        <header className="w-full bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 shadow-lg px-4 sm:px-6 lg:px-8 py-4 sm:py-6 border-b border-primary-200 relative overflow-hidden">
           {/* Header Background Pattern with Indian touch */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/15 via-jasmine-100/25 to-white/15 backdrop-blur-sm"></div>
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-henna-200/15 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-white/15 via-gold-100/25 to-white/15 backdrop-blur-sm"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-secondary-200/15 to-transparent"></div>
 
           <div className="relative z-10 space-y-3">
             {/* Top Row: Logo left, Settings & Coins right */}
@@ -226,7 +227,7 @@ export default function Home() {
                   {t("app.name")}
                 </h1>
                 {isPremium && (
-                  <div className="flex items-center gap-1 bg-gradient-to-r from-jasmine-400 to-gulmohar-500 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full shadow-md">
+                  <div className="flex items-center gap-1 bg-gradient-to-r from-gold-400 to-premium-500 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full shadow-md">
                     <Crown className="h-3 w-3 sm:h-4 sm:w-4 text-white" />
                     <span className="text-white text-xs font-bold">PREMIUM</span>
                   </div>
@@ -248,7 +249,7 @@ export default function Home() {
                 <Button
                   onClick={() => setShowTreasureChest(true)}
                   disabled={coinsLoading}
-                  className="bg-gradient-to-r from-jasmine-500 to-gulmohar-600 hover:from-jasmine-600 hover:to-gulmohar-700 text-white font-semibold px-3 sm:px-4 py-2 sm:py-2.5 rounded-full shadow-md transform hover:scale-105 transition-all duration-200 text-sm sm:text-base"
+                  className="bg-gradient-to-r from-gold-500 to-secondary-600 hover:from-gold-600 hover:to-secondary-700 text-white font-semibold px-3 sm:px-4 py-2 sm:py-2.5 rounded-full shadow-md transform hover:scale-105 transition-all duration-200 text-sm sm:text-base"
                 >
                   <Coins className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" />
                   {coinsLoading ? "..." : coins}
@@ -331,8 +332,8 @@ export default function Home() {
                   onClick={() => setActiveTab("friends")}
                   className={`flex items-center justify-center gap-2 py-4 px-6 rounded-xl font-semibold transition-all duration-300 transform ${
                     activeTab === "friends"
-                      ? "bg-gradient-to-r from-rose-500 to-pink-600 text-white shadow-lg scale-105"
-                      : "text-gray-600 hover:text-rose-600 hover:bg-rose-50"
+                      ? "bg-gradient-to-r from-primary-500 to-accent-600 text-white shadow-lg scale-105"
+                      : "text-neutral-600 hover:text-primary-600 hover:bg-primary-50"
                   }`}
                 >
                   <Users className="h-5 w-5" />
@@ -346,8 +347,8 @@ export default function Home() {
                   onClick={() => setActiveTab("ai")}
                   className={`flex items-center justify-center gap-2 py-4 px-6 rounded-xl font-semibold transition-all duration-300 transform ${
                     activeTab === "ai"
-                      ? "bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-lg scale-105"
-                      : "text-gray-600 hover:text-purple-600 hover:bg-purple-50"
+                      ? "bg-gradient-to-r from-premium-500 to-premium-600 text-white shadow-lg scale-105"
+                      : "text-neutral-600 hover:text-premium-600 hover:bg-premium-50"
                   }`}
                 >
                   <Bot className="h-5 w-5" />
@@ -360,7 +361,7 @@ export default function Home() {
               
               {/* Tab Description */}
               <div className="mt-3 text-center">
-                <p className="text-sm text-gray-600 font-medium">
+                <p className="text-sm text-neutral-600 font-medium">
                   {activeTab === "friends" 
                     ? "💕 Connect with real people and make lasting friendships"
                     : "🤖 Chat with AI assistant for practice and fun conversations"
@@ -374,17 +375,17 @@ export default function Home() {
             <Button
               className={`w-full py-6 sm:py-8 lg:py-10 text-xl sm:text-2xl lg:text-3xl font-bold rounded-3xl sm:rounded-[2rem] text-white shadow-2xl transform transition-all duration-300 relative overflow-hidden animate-pulse hover:animate-none ${
                 isConnecting
-                  ? "bg-gradient-to-r from-coral-400 to-blush-500 scale-95"
+                  ? "bg-gradient-to-r from-secondary-400 to-accent-500 scale-95"
                   : activeTab === "friends"
-                    ? "bg-gradient-to-r from-peach-500 via-coral-500 to-blush-600 hover:scale-105 hover:shadow-3xl hover:animate-bounce"
-                    : "bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-600 hover:scale-105 hover:shadow-3xl hover:animate-bounce"
+                    ? "bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-600 hover:scale-105 hover:shadow-3xl hover:animate-bounce"
+                    : "bg-gradient-to-r from-premium-500 via-premium-600 to-premium-700 hover:scale-105 hover:shadow-3xl hover:animate-bounce"
               }`}
               onClick={activeTab === "friends" ? handleStartCall : () => navigate("/ai-chatbot")}
               disabled={isConnecting}
               title={activeTab === "friends" ? "Takes <10 seconds to find your perfect match" : "Start chatting with AI assistant"}
             >
               {/* Button Background Animation */}
-              <div className="absolute inset-0 bg-gradient-to-r from-jasmine-200/40 via-white/25 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-gold-200/40 via-white/25 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
               
               {/* Floating hearts animation */}
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -432,7 +433,7 @@ export default function Home() {
             
             {/* Tooltip-like text below button */}
             <div className="text-center mt-3">
-              <p className="text-xs sm:text-sm text-gray-600 font-medium animate-pulse">
+              <p className="text-xs sm:text-sm text-neutral-600 font-medium animate-pulse">
                 {activeTab === "friends" 
                   ? "⚡ Takes less than 10 seconds to find your perfect match"
                   : "🤖 Instant AI responses - practice your conversation skills"
@@ -446,25 +447,25 @@ export default function Home() {
             <div className="w-full mb-4 sm:mb-6">
               <Button
                 onClick={() => navigate("/friends")}
-                className="w-full bg-white/80 backdrop-blur-sm text-gray-700 border border-gray-200 hover:bg-white hover:shadow-lg transition-all duration-300 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base"
+                className="w-full bg-white/80 backdrop-blur-sm text-neutral-700 border border-neutral-200 hover:bg-white hover:shadow-lg transition-all duration-300 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base"
               >
-                <Users className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 text-blue-500" />
+                <Users className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 text-primary-500" />
                 <span className="font-semibold">View My Friends</span>
               </Button>
             </div>
           )}
 
           {/* Footer Text */}
-          <div className="text-xs sm:text-sm text-center text-gray-500 px-2 sm:px-4 leading-relaxed">
+          <div className="text-xs sm:text-sm text-center text-neutral-500 px-2 sm:px-4 leading-relaxed">
             By using AjnabiCam, you agree to our Terms of Service and Privacy
             Policy.
             <br className="hidden sm:block" />
             <div className="flex flex-wrap justify-center gap-1 sm:gap-2 mt-1 sm:mt-0">
-              <span className="text-rose-600 font-medium">✓ Safe & Secure</span>
-              <span className="text-gray-400">•</span>
-              <span className="text-pink-600 font-medium">24/7 Support</span>
-              <span className="text-gray-400">•</span>
-              <span className="text-crimson-600 font-medium">
+              <span className="text-primary-600 font-medium">✓ Safe & Secure</span>
+              <span className="text-neutral-400">•</span>
+              <span className="text-accent-600 font-medium">24/7 Support</span>
+              <span className="text-neutral-400">•</span>
+              <span className="text-secondary-600 font-medium">
                 Find True Love
               </span>
             </div>
@@ -474,12 +475,12 @@ export default function Home() {
         {/* Floating Coin Store Button with Indian colors */}
         <button
           onClick={() => setShowTreasureChest(true)}
-          className="fixed bottom-20 sm:bottom-24 lg:bottom-28 right-3 sm:right-4 lg:right-6 bg-gradient-to-r from-peach-500 via-coral-500 to-blush-600 text-white p-3 sm:p-4 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 z-40 animate-pulse"
+          className="fixed bottom-20 sm:bottom-24 lg:bottom-28 right-3 sm:right-4 lg:right-6 bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-600 text-white p-3 sm:p-4 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 z-40 animate-pulse"
         >
           <div className="relative">
             <Coins className="h-5 w-5 sm:h-6 sm:w-6" />
             {coins > 0 && (
-              <div className="absolute -top-1.5 sm:-top-2 -right-1.5 sm:-right-2 bg-sindoor-500 text-white text-xs font-bold rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center shadow-md">
+              <div className="absolute -top-1.5 sm:-top-2 -right-1.5 sm:-right-2 bg-secondary-500 text-white text-xs font-bold rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center shadow-md">
                 {coins > 99 ? "99+" : coins}
               </div>
             )}

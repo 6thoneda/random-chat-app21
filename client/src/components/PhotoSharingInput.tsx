@@ -92,9 +92,9 @@ export default function PhotoSharingInput({
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="romantic-card rounded-3xl shadow-2xl max-w-md w-full overflow-hidden border border-passion-200">
+      <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl max-w-md w-full overflow-hidden border border-primary-200">
         {/* Header */}
-        <div className="bg-gradient-to-r from-passion-600 to-romance-600 text-white p-6 relative">
+        <div className="bg-gradient-to-r from-primary-600 to-accent-600 text-white p-6 relative">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold">Share Photo</h2>
             <button
@@ -133,7 +133,7 @@ export default function PhotoSharingInput({
                 <div className="grid grid-cols-2 gap-3">
                   <Button
                     onClick={() => fileInputRef.current?.click()}
-                    className="h-20 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700"
+                    className="h-20 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700"
                   >
                     <Image size={24} />
                     <span className="text-sm font-medium">Gallery</span>
@@ -144,7 +144,7 @@ export default function PhotoSharingInput({
                       // In a real app, this would open camera
                       fileInputRef.current?.click();
                     }}
-                    className="h-20 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700"
+                    className="h-20 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-mehendi-500 to-mehendi-600 hover:from-mehendi-600 hover:to-mehendi-700"
                   >
                     <Camera size={24} />
                     <span className="text-sm font-medium">Camera</span>
@@ -157,13 +157,13 @@ export default function PhotoSharingInput({
                     <div className="flex items-start gap-3">
                       <AlertCircle
                         size={20}
-                        className="text-red-600 flex-shrink-0 mt-0.5"
+                        className="text-secondary-600 flex-shrink-0 mt-0.5"
                       />
                       <div>
-                        <h4 className="font-semibold text-red-800 text-sm mb-1">
+                        <h4 className="font-semibold text-secondary-800 text-sm mb-1">
                           Upload Error
                         </h4>
-                        <p className="text-red-700 text-xs leading-relaxed">
+                        <p className="text-secondary-700 text-xs leading-relaxed">
                           {error}
                         </p>
                       </div>
@@ -172,17 +172,17 @@ export default function PhotoSharingInput({
                 )}
 
                 {/* Privacy notice */}
-                <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 mt-6">
+                <div className="bg-gold-50 border border-gold-200 rounded-xl p-4 mt-6">
                   <div className="flex items-start gap-3">
                     <AlertCircle
                       size={20}
-                      className="text-orange-600 flex-shrink-0 mt-0.5"
+                      className="text-gold-600 flex-shrink-0 mt-0.5"
                     />
                     <div>
-                      <h4 className="font-semibold text-orange-800 text-sm mb-1">
+                      <h4 className="font-semibold text-gold-800 text-sm mb-1">
                         Privacy Notice
                       </h4>
-                      <p className="text-orange-700 text-xs leading-relaxed">
+                      <p className="text-gold-700 text-xs leading-relaxed">
                         • Photos are automatically deleted when chat is closed
                         <br />
                         • Non-premium users cannot screenshot or download
@@ -247,7 +247,7 @@ export default function PhotoSharingInput({
                   <Button
                     onClick={handleSendPhoto}
                     disabled={isUploading}
-                    className="flex-1 bg-gradient-to-r from-passion-600 to-romance-600 hover:from-passion-700 hover:to-romance-700"
+                    className="flex-1 bg-gradient-to-r from-primary-600 to-accent-600 hover:from-primary-700 hover:to-accent-700"
                   >
                     {isUploading ? (
                       <div className="flex flex-col items-center gap-1 w-full">

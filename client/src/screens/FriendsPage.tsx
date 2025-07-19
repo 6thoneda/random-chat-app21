@@ -79,7 +79,7 @@ const FriendsPage: React.FC = () => {
       </Helmet>
       <main className="flex flex-col items-center min-h-screen w-full max-w-md mx-auto bg-white px-2 py-4 relative pb-20">
         {/* Header */}
-        <div className="w-full flex items-center p-4 bg-gradient-to-r from-rose-500 to-pink-600 text-white font-bold text-xl rounded-t-2xl shadow-lg">
+        <div className="w-full flex items-center p-4 bg-gradient-to-r from-primary-500 to-accent-600 text-white font-bold text-xl rounded-t-2xl shadow-lg">
           <button 
             onClick={handleBackClick} 
             className="mr-3 text-white font-bold text-xl hover:scale-110 transition-transform"
@@ -90,13 +90,13 @@ const FriendsPage: React.FC = () => {
           <Users className="h-6 w-6" />
         </div>
 
-        <div className="w-full flex flex-col bg-white rounded-b-2xl border border-pink-100 shadow-xl mb-6 overflow-hidden">
+        <div className="w-full flex flex-col bg-white rounded-b-2xl border border-primary-100 shadow-xl mb-6 overflow-hidden">
           {/* Friends Limit Info */}
-          <div className="p-4 bg-gradient-to-r from-pink-50 to-rose-50 border-b border-pink-100">
+          <div className="p-4 bg-gradient-to-r from-primary-50 to-accent-50 border-b border-primary-100">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-semibold text-rose-800">Your Friends</h3>
-                <p className="text-sm text-rose-600">
+                <h3 className="font-semibold text-primary-800">Your Friends</h3>
+                <p className="text-sm text-primary-600">
                   {isPremium 
                     ? `${friends.length} friends (Unlimited)` 
                     : `${friends.length}/${maxFreeLimit} friends (Free)`
@@ -108,7 +108,7 @@ const FriendsPage: React.FC = () => {
                 <Button
                   onClick={handleUpgrade}
                   size="sm"
-                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+                  className="bg-gradient-to-r from-premium-600 to-primary-600 hover:from-premium-700 hover:to-primary-700 text-white"
                 >
                   <Crown className="h-4 w-4 mr-1" />
                   Upgrade
@@ -117,8 +117,8 @@ const FriendsPage: React.FC = () => {
             </div>
             
             {!canAddMoreFriends && (
-              <div className="mt-3 p-3 bg-orange-100 rounded-lg border border-orange-200">
-                <p className="text-sm text-orange-700 font-medium">
+              <div className="mt-3 p-3 bg-gold-100 rounded-lg border border-gold-200">
+                <p className="text-sm text-gold-700 font-medium">
                   🚫 You've reached the free limit of {maxFreeLimit} friends. Upgrade to Premium for unlimited friends!
                 </p>
               </div>
@@ -131,29 +131,29 @@ const FriendsPage: React.FC = () => {
               friends.map((friend) => (
                 <div
                   key={friend.id}
-                  className="flex items-center p-4 border-b border-pink-100 hover:bg-pink-50 transition-colors"
+                  className="flex items-center p-4 border-b border-primary-100 hover:bg-primary-50 transition-colors"
                 >
                   <div className="relative">
                     <img
                       src={friend.avatar}
                       alt={`${friend.name} avatar`}
-                      className="w-12 h-12 rounded-full object-cover border-2 border-pink-200"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-primary-200"
                     />
                     {friend.isOnline && (
-                      <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
+                      <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-mehendi-500 border-2 border-white rounded-full"></div>
                     )}
                   </div>
 
                   <div className="ml-3 flex-1">
                     <div className="flex items-center gap-2">
-                      <h3 className="font-semibold text-gray-800">{friend.name}</h3>
+                      <h3 className="font-semibold text-neutral-800">{friend.name}</h3>
                       {friend.isOnline && (
-                        <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
+                        <span className="text-xs bg-mehendi-100 text-mehendi-700 px-2 py-1 rounded-full">
                           Online
                         </span>
                       )}
                     </div>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-neutral-500">
                       {friend.isOnline ? 'Active now' : `Last seen ${formatLastSeen(friend.lastSeen)}`}
                     </p>
                   </div>
@@ -162,7 +162,7 @@ const FriendsPage: React.FC = () => {
                     <Button
                       onClick={() => handleVideoCall(friend.id, friend.name)}
                       size="sm"
-                      className="bg-green-500 hover:bg-green-600 text-white p-2"
+                      className="bg-mehendi-500 hover:bg-mehendi-600 text-white p-2"
                       disabled={!friend.isOnline}
                     >
                       <Video className="h-4 w-4" />
@@ -172,7 +172,7 @@ const FriendsPage: React.FC = () => {
                       onClick={() => handleRemoveFriend(friend.id, friend.name)}
                       size="sm"
                       variant="outline"
-                      className="text-red-500 hover:bg-red-50 p-2 border-red-200"
+                      className="text-secondary-500 hover:bg-secondary-50 p-2 border-secondary-200"
                     >
                       <Trash2 className="h-4 w-4" />
                     </Button>
@@ -182,13 +182,13 @@ const FriendsPage: React.FC = () => {
             ) : (
               <div className="flex flex-col items-center justify-center py-12 px-6 text-center">
                 <div className="text-6xl mb-4">👥</div>
-                <h3 className="text-lg font-semibold text-gray-600 mb-2">No Friends Yet</h3>
-                <p className="text-gray-500 mb-4">
+                <h3 className="text-lg font-semibold text-neutral-600 mb-2">No Friends Yet</h3>
+                <p className="text-neutral-500 mb-4">
                   Make friends by staying connected after video calls!
                 </p>
                 <Button
                   onClick={() => navigate('/video-chat')}
-                  className="bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white"
+                  className="bg-gradient-to-r from-primary-500 to-accent-600 hover:from-primary-600 hover:to-accent-700 text-white"
                 >
                   <UserPlus className="h-4 w-4 mr-2" />
                   Start Meeting People
@@ -199,8 +199,8 @@ const FriendsPage: React.FC = () => {
 
           {/* Add Friends Tip */}
           {friends.length > 0 && canAddMoreFriends && (
-            <div className="p-4 bg-gradient-to-r from-green-50 to-emerald-50 border-t border-green-100">
-              <p className="text-sm text-green-700 text-center">
+            <div className="p-4 bg-gradient-to-r from-mehendi-50 to-accent-50 border-t border-mehendi-100">
+              <p className="text-sm text-mehendi-700 text-center">
                 💡 <strong>Tip:</strong> After video calls, choose "Stay Connected" to add them as friends!
               </p>
             </div>
